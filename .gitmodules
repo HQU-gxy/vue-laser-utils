@@ -1,0 +1,3 @@
+[submodule "eslintrc"]
+	path = eslintrc
+	url = https://github.com/crosstyan/eslintrc
