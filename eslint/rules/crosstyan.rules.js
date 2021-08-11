@@ -7,7 +7,7 @@ module.exports = {
     // Just modify error to warn
     "array-bracket-spacing": ["warn", "never"],
     "brace-style": "warn",
-    "object-curly-spacing": ["warn", "always"],
+    "object-curly-spacing": "warn",
     "no-param-reassign": "warn",
     "no-underscore-dangle": "warn",
     "no-empty-function": "warn",
