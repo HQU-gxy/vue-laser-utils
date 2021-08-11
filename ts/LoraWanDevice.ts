@@ -23,17 +23,17 @@ export interface DeviceProfile {
   name?: string,
   referenceAltitude?: number,
   skipFCntCheck?: boolean,
-  tags?: {},
-  variables?: {}
+  tags?: Record<string,unknown>,
+  variables?: Record<string,unknown>,
 }
 
 
 export class LoraWanDevice implements DeviceProfile {
   devEUI: string = this.getRandomDevEui()
   appKey: string = this.getRandomAppKey()
-  applicationID: string = "2"
-  description: string = "test"
-  deviceProfileID: string = "70298761-1bf9-4a6c-bda1-69a0eb04aaaf"
+  applicationID = "2"
+  description = "test"
+  deviceProfileID = "70298761-1bf9-4a6c-bda1-69a0eb04aaaf"
   isDisabled = false
   skipFCntCheck = false
   name: string = this.getRandomName()

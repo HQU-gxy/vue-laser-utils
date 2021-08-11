@@ -1,6 +1,6 @@
-import { LoraWanDevice } from "./LoraWanDevice";
-import { ChirpStackApi } from "./chirpStackApi";
-import { AtSerial } from "./atSerial";
+import { LoraWanDevice } from "./LoraWanDevice"
+import { ChirpStackApi } from "./chirpStackApi"
+import { AtSerial } from "./atSerial"
 
 const api = new ChirpStackApi()
 
@@ -12,7 +12,7 @@ async function postToChirpStack(){
   console.log((await api.postDevice(device)).data)
 }
 
-https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Functions/Arrow_functions
+/* https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Functions/Arrow_functions */
 
 console.log(device)
 
@@ -24,15 +24,15 @@ atSerial.listPorts().then(portList =>console.log(portList))
 
 // atSerial.listPorts().then(console.log)
 atSerial.atVersion(port)
-	.then(console.log)
-	.then(() => atSerial.atDevEUI(port, device))
-	.then(console.log)
-	.then(() => atSerial.atAppKey(port, device))
-	.then(console.log)
-	.then(() => api.postDevice(device))
-	.then((resp) => console.log(resp.data))
-	.then(() => api.postDeviceKey(device))
-	.then((resp) => console.log(resp.data))
-	.catch(err => console.log(err))
+  .then(console.log)
+  .then(() => atSerial.atDevEUI(port, device))
+  .then(console.log)
+  .then(() => atSerial.atAppKey(port, device))
+  .then(console.log)
+  .then(() => api.postDevice(device))
+  .then((resp) => console.log(resp.data))
+  .then(() => api.postDeviceKey(device))
+  .then((resp) => console.log(resp.data))
+  .catch(err => console.log(err))
 
 // Or use Promise.all

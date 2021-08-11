@@ -10,9 +10,13 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^0.21.1",
-    "serialport": "^9.1.0"
+    "serialport": "^9.1.0",
+    "typescript": "^4.3.5"
   },
   "devDependencies": {
-    "@types/serialport": "^8.0.1"
+    "@types/serialport": "^8.0.1",
+    "@typescript-eslint/eslint-plugin": "^4.29.1",
+    "@typescript-eslint/parser": "^4.29.1",
+    "eslint": "^7.32.0"
   }
 }
