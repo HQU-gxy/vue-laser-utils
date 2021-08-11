@@ -1,3 +1,4 @@
+import { LoraUtils } from "./utils"
 export class Msg {
   protected msg: Uint8Array = new Uint8Array()
   public print(): void {
@@ -11,12 +12,6 @@ export class Msg {
       string_buffer += num.toString(16).padStart(2, "0")
     })
     return string_buffer
-  }
-  protected uint16ToUint8Array(num: number): Uint8Array {
-    const low_octave = num & 0xff
-    const high_octave = (num & 0xff00) >> 8
-    const array = new Uint8Array([high_octave, low_octave])
-    return array
   }
 }
 
@@ -39,10 +34,12 @@ export class HitMsg extends Msg {
   }
   private hexlifyMsg(): Uint8Array {
     return new Uint8Array([
+      /* eslint-disable no-bitwise */
       this.body_part & 0xff,
-      ...this.uint16ToUint8Array(this.id_fire),
-      ...this.uint16ToUint8Array(this.id_target),
+      ...LoraUtils.uint16ToUint8Array(this.id_fire),
+      ...LoraUtils.uint16ToUint8Array(this.id_target),
       0x5b,
+      /* eslint-enable no-bitwise */
     ])
   }
 }
@@ -77,15 +74,15 @@ export class PingMsg extends Msg {
   }
 
   private hexlifyId(): Uint8Array {
-    return this.uint16ToUint8Array(this.id)
+    return LoraUtils.uint16ToUint8Array(this.id)
   }
   private hexlifyLatitude(): Uint8Array {
     const high_double_byte = Math.floor(this.latitude * 100)
     const low_double_byte = Math.floor(
       (this.latitude * 100 - high_double_byte) * 10000,
     )
-    const high_double_byte_array = this.uint16ToUint8Array(high_double_byte)
-    const low_double_byte_array = this.uint16ToUint8Array(low_double_byte)
+    const high_double_byte_array = LoraUtils.uint16ToUint8Array(high_double_byte)
+    const low_double_byte_array = LoraUtils.uint16ToUint8Array(low_double_byte)
     return new Uint8Array([...high_double_byte_array, ...low_double_byte_array])
   }
   private hexlifyLongitude(): Uint8Array {
@@ -93,8 +90,8 @@ export class PingMsg extends Msg {
     const low_double_byte = Math.floor(
       (this.longitude * 100 - high_double_byte) * 10000,
     )
-    const high_double_byte_array = this.uint16ToUint8Array(high_double_byte)
-    const low_double_byte_array = this.uint16ToUint8Array(low_double_byte)
+    const high_double_byte_array = LoraUtils.uint16ToUint8Array(high_double_byte)
+    const low_double_byte_array = LoraUtils.uint16ToUint8Array(low_double_byte)
     return new Uint8Array([...high_double_byte_array, ...low_double_byte_array])
   }
   private hexlifyMsg(): Uint8Array {

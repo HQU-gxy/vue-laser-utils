@@ -1,3 +1,17 @@
+/* Crosstyan Version ESLint based on 
+   https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb-base  
+
+   - no semi. (I hate semi)
+   - @typescript-eslint
+   - no import (sometime this brings bugs) especially in Vue
+   - no node (not everyone running node)
+   - less strict but still warn you. 
+   - just my personal taste
+
+   Last one in extends properties has highest priority
+   I'm using TypeScript so @typescript-eslint is required
+*/
+
 module.exports = {
   "env": {
     "browser": true,
@@ -5,35 +19,14 @@ module.exports = {
     "node": true,
   },
   "extends": [
-    "eslint:recommended",
-    "plugin:@typescript-eslint/recommended",
+    "./eslint/crosstyan.eslint",
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaVersion": 12,
     "sourceType": "module",
   },
-  "plugins": ["@typescript-eslint"],
-  "rules": {
-    "no-console": process.env.NODE_ENV === "production" ? "warn" : "off",
-    "no-debugger": process.env.NODE_ENV === "production" ? "warn" : "off",
-    indent: ["warn", 2],
-    quotes: ["warn", "double"],
-    semi: ["warn", "never"],
-    camelcase: "off",
-    "array-bracket-spacing": ["warn", "never"],
-    "brace-style": ["warn", "1tbs"],
-    "linebreak-style": ["off", "unix"],
-    "max-len": "warn",
-    "object-curly-newline": "warn",
-    "no-param-reassign": "warn",
-    "no-underscore-dangle": "warn",
-    "no-empty-function": "warn",
-    "no-trailing-spaces": "warn",
-    "comma-dangle": ["warn", "always-multiline"],
-    "no-plusplus": "off",
-    "@typescript-eslint/no-empty-function": "warn",
-    "@typescript-eslint/ban-ts-comment": "off",
-    "@typescript-eslint/explicit-module-boundary-types": "off",
-  },
+  rules: {
+    "no-console": "off"
+  }
 }

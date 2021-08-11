@@ -9,7 +9,7 @@ export class AtSerial {
     this.baudRate = baudRate
   }
 
-  async listPorts(): Promise<string[]> {
+  static listPorts(): Promise<string[]> {
     return new Promise((resolve, reject) => {
       const portList: string[] = []
       SerialPort.list()
@@ -30,7 +30,7 @@ export class AtSerial {
       const readLineParser = new SerialPort.parsers.Readline({
         delimiter: "\r\n",
       })
-      serial.open() //maybe we don't need to open the serial port every time
+      serial.open() // maybe we don't need to open the serial port every time
       serial.pipe(readLineParser)
       serial.write(command, () => {
         readLineParser.on("data", (data) => {

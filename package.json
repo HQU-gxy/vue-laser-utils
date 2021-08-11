@@ -4,7 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "eslint \"ts/**/*.ts\"",
+    "lint:fix": "eslint --fix \"{ts}/**/*.{ts}\"",
+    "lint:quiet": "eslint --quiet \"{ts}/**/*.{ts}\"",
+    "test": "node js/index.js",
+    "tsc": "tsc"
   },
   "author": "",
   "license": "ISC",
@@ -17,6 +21,8 @@
     "@types/serialport": "^8.0.1",
     "@typescript-eslint/eslint-plugin": "^4.29.1",
     "@typescript-eslint/parser": "^4.29.1",
-    "eslint": "^7.32.0"
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.24.0"
   }
 }

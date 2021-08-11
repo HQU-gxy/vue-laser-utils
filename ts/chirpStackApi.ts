@@ -57,7 +57,7 @@ export class ChirpStackApi {
       baseURL: this.config.url,
       timeout: 2000,
       headers: {
-        Authorization: "Bearer " + this.config.token,
+        Authorization: `Bearer ${this.config.token}`,
       },
     })
   }
@@ -71,7 +71,7 @@ export class ChirpStackApi {
         .get("/devices", {
           params: {
             applicationID: this.config.applicationID,
-            limit: limit,
+            limit,
           },
         })
         .then((response) => {

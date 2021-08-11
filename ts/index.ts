@@ -5,10 +5,10 @@ import { AtSerial } from "./atSerial"
 const api = new ChirpStackApi()
 
 const atSerial = new AtSerial(115200)
-const device = new LoraWanDevice
+const device = new LoraWanDevice()
 const port = "COM4"
 
-async function postToChirpStack(){
+async function postToChirpStack() {
   console.log((await api.postDevice(device)).data)
 }
 
@@ -16,11 +16,11 @@ async function postToChirpStack(){
 
 console.log(device)
 
-atSerial.listPorts().then(portList =>console.log(portList))
+AtSerial.listPorts().then((portList) => console.log(portList))
 
 // atSerial.atVersion(port)
-// 	.then(console.log)
-// 	.catch(err => console.log(err))
+// .then(console.log)
+// .catch(err => console.log(err))
 
 // atSerial.listPorts().then(console.log)
 atSerial.atVersion(port)
@@ -33,6 +33,6 @@ atSerial.atVersion(port)
   .then((resp) => console.log(resp.data))
   .then(() => api.postDeviceKey(device))
   .then((resp) => console.log(resp.data))
-  .catch(err => console.log(err))
+  .catch((err) => console.log(err))
 
 // Or use Promise.all
