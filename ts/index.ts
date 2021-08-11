@@ -8,9 +8,9 @@ const atSerial = new AtSerial(115200)
 const device = new LoraWanDevice()
 const port = "COM4"
 
-async function postToChirpStack() {
-  console.log((await api.postDevice(device)).data)
-}
+// async function postToChirpStack() {
+//   console.log((await api.postDevice(device)).data)
+// }
 
 /* https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Functions/Arrow_functions */
 

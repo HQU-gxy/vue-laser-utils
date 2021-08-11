@@ -42,7 +42,6 @@ export class ChirpStackApi {
   private config: ChirpStackApiConfig
   private axios: AxiosInstance
   constructor()
-  constructor(api_info: ChirpStackApiConfig)
   constructor(api_info?: ChirpStackApiConfig) {
     const default_api_info = {
       url: "http://nyan.one:8082/api",
