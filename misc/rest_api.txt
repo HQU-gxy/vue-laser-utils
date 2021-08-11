@@ -1,0 +1,1 @@
+http://nyan.one:8082/api/applications?limit=10

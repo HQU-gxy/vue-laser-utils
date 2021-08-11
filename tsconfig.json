@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es2017",
+    "lib": [
+        "es2017",
+        "dom"
+    ],
+    "jsx": "preserve",
+    "strictFunctionTypes": true,
+    "sourceMap": true,
+    "outDir": "./js",                        /* Redirect output structure to the directory. */
+    "rootDir": "./ts",                       /* Specify the root directory of input files. Use to control the output directory structure with --outDir. */
+    "watch": true,
+    "strict": true,                           /* Enable all strict type-checking options. */
+  },
+  "exclude": [
+    "node_modules",
+    "**/node_modules/*"
+  ], 
+}
